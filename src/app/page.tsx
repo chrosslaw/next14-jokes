@@ -46,7 +46,7 @@ export default function Home() {
   };
   if (!memes) fetchMemes();
   return (
-    <div className="flex flex-col place-items-center">
+    <div className="flex flex-col place-content-center w-full">
       <div className="flex flex-col md:flex-row place-content-center place-items-center w-full p-2 m-4 gap-4 shadow-inner-y shadow-gray-200  bg-gradient-to-r from-white from-20% via-slate-200 via-50% to-white to-80%">
         <button
           className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1 text-xl"
@@ -84,8 +84,8 @@ export default function Home() {
       </div>
       <div className="flex flex-col place-items-center">
         <p className="font-bold text-3xl">A {jokeType} joke, as requested</p>
-        <div className="border border-black rounded-lg m-8 shadow-lg ">
-          <p className="p-6 text-xl md:text-2xl">{joke || "No joke yet!"}</p>
+        <div className="flex border border-black rounded-lg m-8 shadow-lg w-3/4 lg:max-w-3xl">
+          <p className="p-6 text-xl md:text-2xl ">{joke || "No joke yet!"}</p>
         </div>
         {showMeme && memes.length > 0 && (
           <Meme
