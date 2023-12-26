@@ -22,7 +22,7 @@ export async function getMemes() {
       throw new Error("Network response was not ok");
     }
     const json = await response.json();
-    return json;
+    return json.data.memes;
   } catch (error) {
     // Handle the error, e.g., log it or return a custom error message
     console.error("There was a problem fetching the memes:", error);
