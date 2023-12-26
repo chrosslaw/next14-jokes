@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Daily Tech Humor",
-  description: "Tech jokes on demand.",
+  title: "Jokes on Demand",
+  description: "Simple page that fetches new jokes.",
 };
 
 export default function RootLayout({

@@ -62,8 +62,8 @@ export default function Home() {
       </div>
       <div className="flex flex-col place-items-center">
         <p className="font-bold text-3xl">A {jokeType} joke, as requested</p>
-        <div className="border border-black rounded-lg m-8 shadow-lg text-3xl">
-          <p className="p-6">{joke || "No joke yet!"}</p>
+        <div className="border border-black rounded-lg m-8 shadow-lg ">
+          <p className="p-6 text-xl md:text-2xl">{joke || "No joke yet!"}</p>
         </div>
       </div>
     </div>
