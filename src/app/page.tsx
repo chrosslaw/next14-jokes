@@ -47,7 +47,7 @@ export default function Home() {
   if (!memes) fetchMemes();
   return (
     <div className="flex flex-col place-items-center">
-      <div className="flex flex-col md:flex-row place-content-center place-items-center w-full p-2 m-4 gap-4 shadow-inner-y shadow-gray-200  bg-gradient-to-r from-white from-20% via-slate-300 via-50% to-white to-80%">
+      <div className="flex flex-col md:flex-row place-content-center place-items-center w-full p-2 m-4 gap-4 shadow-inner-y shadow-gray-200  bg-gradient-to-r from-white from-20% via-slate-200 via-50% to-white to-80%">
         <button
           className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1 text-xl"
           onClick={() => {
