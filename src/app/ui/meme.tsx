@@ -1,4 +1,17 @@
-export default function Meme({ meme, showMeme, setShowMeme }) {
+interface MemeType {
+  name: string;
+  url: string;
+  height: number;
+  width: number;
+}
+
+interface MemeProps {
+  meme: MemeType;
+  showMeme: boolean;
+  setShowMeme: (show: boolean) => void;
+}
+
+export default function Meme({ meme, setShowMeme }: MemeProps) {
   const { name, url, height, width } = meme;
   return (
     <div className="flex flex-col place-content-center self-center m-8 p-4 w-full border-t-2">

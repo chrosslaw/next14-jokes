@@ -87,9 +87,9 @@ export default function Home() {
         <div className="border border-black rounded-lg m-8 shadow-lg ">
           <p className="p-6 text-xl md:text-2xl">{joke || "No joke yet!"}</p>
         </div>
-        {showMeme && (
+        {showMeme && memes.length > 0 && (
           <Meme
-            meme={memes[randomNumber]}
+            meme={memes[randomNumber % memes.length]}
             showMeme={showMeme}
             setShowMeme={setShowMeme}
           />
