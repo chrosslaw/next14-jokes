@@ -21,17 +21,13 @@ export default function Home() {
   const fetchJoke = async (retryCount = 0) => {
     try {
       const result = await getJoke();
-
       const isChuckNorrisJoke =
         jokeType === "Chuck Norris" && result.joke.includes("Chuck Norris");
       const isTechJoke =
         jokeType === "Tech" && !result.joke.includes("Chuck Norris");
-
-      if (isChuckNorrisJoke || isTechJoke || retryCount > 30) {
-        setJoke(result.joke);
-      } else {
-        fetchJoke(retryCount + 1);
-      }
+      isChuckNorrisJoke || isTechJoke || retryCount > 30
+        ? setJoke(result.joke)
+        : fetchJoke(retryCount + 1);
     } catch (error) {
       console.error("Error fetching joke:", error);
     }
@@ -51,11 +47,11 @@ export default function Home() {
         <button
           className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1 text-xl"
           onClick={() => {
-            if (jokeType !== "Chuck Norris") {
-              setJokeType("Chuck Norris");
-            } else {
-              fetchJoke();
-            }
+            showMeme
+              ? setShowMeme(false)
+              : jokeType !== "Chuck Norris"
+              ? setJokeType("Chuck Norris")
+              : fetchJoke();
           }}
         >
           Chuck Norris Joke
@@ -63,11 +59,11 @@ export default function Home() {
         <button
           className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1  text-xl"
           onClick={() => {
-            if (jokeType !== "Tech") {
-              setJokeType("Tech");
-            } else {
-              fetchJoke();
-            }
+            showMeme
+              ? setShowMeme(false)
+              : jokeType !== "Tech"
+              ? setJokeType("Tech")
+              : fetchJoke();
           }}
         >
           Tech Joke
@@ -83,10 +79,18 @@ export default function Home() {
         </button>
       </div>
       <div className="flex flex-col place-items-center">
-        <p className="font-bold text-3xl">A {jokeType} joke, as requested</p>
-        <div className="flex border border-black rounded-lg m-8 shadow-lg w-3/4 lg:max-w-3xl">
-          <p className="p-6 text-xl md:text-2xl ">{joke || "No joke yet!"}</p>
-        </div>
+        {!showMeme && (
+          <div className="flex flex-col place-items-center self-center">
+            <p className="font-bold text-3xl text-center">
+              A {jokeType} joke, as requested
+            </p>
+            <div className="flex border border-black rounded-lg m-8 shadow-lg w-3/4 lg:max-w-3xl">
+              <p className="p-6 text-xl md:text-2xl ">
+                {joke || "No joke yet!"}
+              </p>
+            </div>
+          </div>
+        )}
         {showMeme && memes.length > 0 && (
           <Meme
             meme={memes[randomNumber % memes.length]}
