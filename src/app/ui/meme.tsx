@@ -16,9 +16,9 @@ interface MemeProps {
 export default function Meme({ meme, setShowMeme }: MemeProps) {
   const { name, url, height, width } = meme;
   return (
-    <div className="flex flex-col place-content-center self-center m-8 p-4 w-full border-t-2">
+    <div className="flex flex-col place-content-center self-center m-8 p-4 w-full border-t-2 ">
       <p className="text-center font-bold text text-2xl">A meme for you</p>
-      <div className="flex flex-col place-content-center self-center m-8 p-4 border border-black rounded-lg shadow-lg ">
+      <div className="flex flex-col place-content-center self-center m-8 p-4 border border-black rounded-lg shadow-lg bg-white">
         <button
           className="self-end font-bold text-2xl pr-4"
           onClick={() => {

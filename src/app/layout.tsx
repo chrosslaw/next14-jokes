@@ -16,7 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="flex flex-col h-full w-full place-items-center">
+    <html
+      lang="en"
+      className="flex flex-col h-full w-full place-items-center bg-gray-50"
+    >
       <body className={`flex flex-col place-items-center w-full`}>
         <Header />
         {children}
