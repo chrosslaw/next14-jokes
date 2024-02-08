@@ -41,11 +41,12 @@ export default function Home() {
     }
   };
   if (!memes) fetchMemes();
+  console.log(memes);
   return (
-    <div className="flex flex-col place-content-center w-full">
-      <div className="flex flex-col md:flex-row place-content-center place-items-center w-full p-2 m-4 gap-4 shadow-inner-y shadow-gray-200  bg-gradient-to-r from-white from-20% via-slate-200 via-50% to-white to-80%">
+    <div className="flex flex-col place-items-center w-full">
+      <div className="max-w-5xl flex flex-col md:flex-row place-content-center place-items-center w-full p-2 m-4 gap-4 shadow-inner-y shadow-gray-50  bg-gradient-to-r from-white via-slate-200 via-50% to-white">
         <button
-          className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1 text-xl"
+          className="w-max bg-white rounded-tr-2xl rounded-bl-2xl rounded-br-md rounded-tl-md shadow-inner shadow-red-200 hover:shadow-inner p-1 px-2 text-xl border border-gray-200 hover:border-b-red-100 hover:border-r-red-200 hover:border-t-blue-200 hover:border-l-blue-300 hover:bg-gradient-to-br from-blue-100 to-red-50"
           onClick={() => {
             showMeme
               ? setShowMeme(false)
@@ -57,7 +58,7 @@ export default function Home() {
           Chuck Norris Joke
         </button>
         <button
-          className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1  text-xl"
+          className="w-max bg-white rounded-tr-2xl rounded-bl-2xl rounded-br-md rounded-tl-md shadow-inner shadow-red-200 hover:shadow-inner p-1 px-2 text-xl border border-gray-200 hover:border-b-red-100 hover:border-r-red-200 hover:border-t-blue-200 hover:border-l-blue-300 hover:bg-gradient-to-br from-blue-100 to-red-50"
           onClick={() => {
             showMeme
               ? setShowMeme(false)
@@ -69,7 +70,7 @@ export default function Home() {
           Tech Joke
         </button>
         <button
-          className="border w-max bg-white border-black rounded-md hover:border-blue-400 shadow-md hover:shadow-xl p-1  text-xl"
+          className="w-max bg-white rounded-tr-2xl border-collapse rounded-bl-2xl rounded-br-md rounded-tl-md shadow-inner shadow-red-200 hover:shadow-inner p-1 px-2 text-xl border border-gray-200 hover:border-b-red-100 hover:border-r-red-200 hover:border-t-blue-200 hover:border-l-blue-300 hover:bg-gradient-to-br from-blue-100 to-red-50"
           onClick={() => {
             setRandomNumber(Math.floor(Math.random() * 100));
             if (!showMeme) setShowMeme(true);
@@ -78,14 +79,16 @@ export default function Home() {
           Meme
         </button>
       </div>
-      <div className="flex flex-col place-items-center">
+      <div className="flex flex-col ">
         {!showMeme && (
-          <div className="flex flex-col place-items-center self-center">
-            <p className="font-bold text-3xl text-center">
-              A {jokeType} joke, as requested
-            </p>
-            <div className="flex border border-black rounded-lg m-8 shadow-lg w-3/4 lg:max-w-3xl">
-              <p className="p-6 text-xl md:text-2xl ">
+          <div className="flex flex-col place-content-center self-center m-8 p-4 w-full border-t-2">
+            {joke && (
+              <p className="font-bold text-3xl text-center">
+                A {jokeType} joke, as requested
+              </p>
+            )}
+            <div className="flex place-items-center border-t border-r border-gray-200 rounded-lg m-8 shadow-lg shadow-gray-200 w-7/8 lg:max-w-4xl">
+              <p className="text-center p-6 text-xl md:text-2xl ">
                 {joke || "No joke yet!"}
               </p>
             </div>
